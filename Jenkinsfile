@@ -40,8 +40,11 @@ pipeline {
 	                      outputPath: "Output\\${env.BUILD_NUMBER}",
 	                      projectJsonPath: "project.json",
 	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-	                      useOrchestrator: false,
+	                      useOrchestrator: true,
 						  traceLevel: 'None'
+				orchestratorAddress: "https://cloud.uipath.com/capgeminipratim/",
+         			orchestratorTenant: "MyTenant",
+          			credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: “ApiUserID”]
 	        )
 	            }
 	        }
