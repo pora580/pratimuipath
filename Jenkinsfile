@@ -42,9 +42,7 @@ pipeline {
 	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
 	                      useOrchestrator: true,
 						  traceLevel: 'None'
-				orchestratorAddress: "https://cloud.uipath.com/capgeminipratim/",
-         			orchestratorTenant: "MyTenant",
-          			credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: “ApiUserID”]
+				
 	        )
 	            }
 	        }
