@@ -1,0 +1,1380 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PlaceDateOnRbi" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DateRbi" Type="InArgument(x:String)" />
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>783.3333333333334,1238.6666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PlaceDateOnRbi_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Security</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PlaceDateOnRbi" sap:VirtualizedContainerService.HintSize="592,1174" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="FromDate" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="530,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[FromDate]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_DateRbi]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Reserve Bank of India - Reference Rate Archive" sap:VirtualizedContainerService.HintSize="530,938" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="Always" ScopeGuid="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,718.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Default="False" Name="MonthExists" />
+              <Variable x:TypeArguments="x:String" Name="Year" />
+              <Variable x:TypeArguments="x:String" Name="DateVar" />
+              <Variable x:TypeArguments="x:Boolean" Name="JanuaryReset" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click From Date" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="684, 591, 38, 35" CvType="Icon" DesignTimeRectangle="686, 591, 36, 38" DesignTimeScaleFactor="1.5" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='ui-datepicker-trigger' aaname='...' /&gt;" Guid="85bfc8db-6b02-4ac7-ab31-539c45f6ebe7" ImageBase64="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" InformativeScreenshot="72bed24fd4d1fa7249c4fa9539c68efc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="Go Back to Jan" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_14">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Prev'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="452, 586, 28, 27" CvType="Icon" DesignTimeRectangle="455, 588, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Prev'" FullSelectorArgument="&lt;webctrl parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-w' aaname='Prev' check:innerText='Prev' /&gt;" Guid="e5473e58-18c7-455b-9787-c7c37786dea7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAK6SURBVEhL5ZVLaxRBFIX7Z8UHio+FGiEqiKIiiKCIbly4casI/gYRRDe+SDITYsbExMSgMUjUoBg1k+hKEpkICnZVdY9e76nuHqqrbgcRjAsXZxjqnvudrprbNZG6t5vWUv9FYLdYCPW7PlfoKZSt5YESzF0vvvs+yePXXJUCJXFjYy+pkQOkxo6SnjhJ+tGpsngNNeuBtzIs0+qBDLDQ55fING9SuvKK0m+LZfEaavDAm4UKrFzVgaNHSE+fp2TxLiVLU5R+bVI7/U7tn+2yeA01eOBFD3pFJisMHOIjub8vC/tQo7ZeCUOqxF702FBmWJbHDwMRNnmGn7Y3C/thZLgkeBHKvWDYUI8fBo4cJPPiMiXL0zKUlQL6sU5p66VYRy8YYPl8L3CXnbhk4Q7/LgsiDGHp0mPS48fJvL8he7gXDDu9YFp1AouFTHriBKVfXvMwxCIMO0OYavRUBqIXDLB8fqQGd5ArG8jj7kOyY+SBmDrX8Zp31wNfITBsoMOGonhgG8UD2ztS/PTScWINNddr3l4LfIUkPxSp2iZypfnc7TsXAJq25nrN3NXAV0jyQ5Hq30Cu9OhhNs+HANXKXuzJ0x2vmbsS+AqBAZbLhqK4bz25wiinrdnKoTGYvuH9FNc2k3lTEYihYQZYPj8MbOwhM8/3ZtVrgZ1+GrehVYHoBQMsnx8ExoM7Sc9csHejBIMQip0mn5+JdfSCAZbPDwPrW0k9PMb/ALf4mmr9wdXGD8O9YIDl88PA/o3WqJ+c5Yu4LwuV4JLYix702jCwPH4YmEsN9dhGPG2y/DS7DNrCIPEaavDAix70SkwoUvxRKewUxztzkZLmbf6znbXjXhKvoQYPvOgRWbl4h+s4uUL83sT1Lfzj87XEE2dv/weHysIappE91oseiZVr9cC/oH8Q2NtFa6cu+gUZEu85HWTPCgAAAABJRU5ErkJggg==" InformativeScreenshot="d0bd59e1264c403b1489b5da7fc2b6bf.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'January'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_15" Result="[JanuaryReset]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="2" Version="V3">
+                    <uix:NCheckElement.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="507, 589, 72, 22" CvTextArgument="January" CvType="Text" DesignTimeRectangle="509, 590, 69, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'January'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='January' check:innerText='January' /&gt;" Guid="4a90c2d2-a02c-4ce4-b913-a0940c77e4e2" InformativeScreenshot="12c3c048b70807a3256ef3e9d5f1f08e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                    </uix:NCheckElement.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckElement>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+              <ui:InterruptibleWhile.Condition>
+                <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="JanuaryReset = False" />
+              </ui:InterruptibleWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleWhile>
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[FromDate.Substring(3,2) = &quot;01&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'January'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_2" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="507, 639, 70, 22" CvTextArgument="January" CvType="Text" DesignTimeRectangle="509, 640, 69, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'January'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='January' check:innerText='January' /&gt;" Guid="e1488336-fe06-44d2-88e6-5e110eb48191" InformativeScreenshot="b0629f8f59518c6ca453664d5bac01cf.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;02&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'February'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_4" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="502, 639, 81, 22" CvTextArgument="February" CvType="Text" DesignTimeRectangle="505, 640, 77, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'February'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='February' check:innerText='February' /&gt;" Guid="dfa67fd4-9ffd-4a85-86ea-79b57a14833f" InformativeScreenshot="1ba29c59e5e9e7991fdaedc6b02c50a6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_2" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;03&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'March'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_5" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="514, 640, 57, 18" CvTextArgument="March" CvType="Text" DesignTimeRectangle="517, 640, 53, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'March'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='March' check:innerText='March' /&gt;" Guid="f7e2f415-ac48-44f2-9634-f03291c22b46" InformativeScreenshot="a7411e18aecff173c18c787ec15944a7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;04&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_5">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'April'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_6" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="519, 639, 45, 22" CvTextArgument="April" CvType="Text" DesignTimeRectangle="523, 640, 41, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'April'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='April' check:innerText='April' /&gt;" Guid="3432f659-a41b-41ee-9a22-cd40968cc953" InformativeScreenshot="9831cc497bb82706c7f8863f12f777f4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_4" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;05&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_6">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'May'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_7" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="523, 640, 39, 21" CvTextArgument="May" CvType="Text" DesignTimeRectangle="526, 640, 35, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'May'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='May' check:innerText='May' /&gt;" Guid="c988df79-2671-4728-8505-90e8349aa9d1" InformativeScreenshot="d2d71db91ba335615424ca8df07c827e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_5" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;06&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_7">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'June'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_8" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="519, 640, 46, 18" CvTextArgument="June" CvType="Text" DesignTimeRectangle="522, 640, 42, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'June'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='June' check:innerText='June' /&gt;" Guid="10cf4cf4-504b-4b37-be83-1f4e5ed30d3c" InformativeScreenshot="224dd39b9d711bd4024f7b2c385bf387.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_6" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;07&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_8">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'July'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_9" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="523, 640, 39, 21" CvTextArgument="July" CvType="Text" DesignTimeRectangle="525, 640, 36, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'July'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='July' check:innerText='July' /&gt;" Guid="38eb1e8d-5be9-4f08-bb91-48cbdba77ee4" InformativeScreenshot="cf8ec46fc4eae463a17545f462875f17.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_7" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;08&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_9">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'August'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_10" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="510, 639, 66, 22" CvTextArgument="August" CvType="Text" DesignTimeRectangle="512, 640, 62, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'August'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='August' check:innerText='August' /&gt;" Guid="1587ef85-55ee-4a94-8045-689181ad27db" InformativeScreenshot="f7b09f94518f74d9afacaf1485604b61.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_8" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;09&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_10">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'September'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_11" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="495, 640, 96, 21" CvTextArgument="September" CvType="Text" DesignTimeRectangle="497, 640, 93, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'September'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='September' check:innerText='September' /&gt;" Guid="00a555ec-fcc4-4dc9-bad2-907b3eee3acb" InformativeScreenshot="7ad9d0c11128087852dba480a09ee3a7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_9" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;10&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_11">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'October'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_12" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="507, 640, 72, 18" CvTextArgument="October" CvType="Text" DesignTimeRectangle="509, 640, 69, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'October'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='October' check:innerText='October' /&gt;" Guid="9fa7cfef-8c03-4fe9-8b68-999841061bdd" InformativeScreenshot="74b135d179e3596b2c4645bf002b6630.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_10" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;11&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_12">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'November'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_13" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="496, 639, 93, 19" CvTextArgument="November" CvType="Text" DesignTimeRectangle="499, 640, 88, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'November'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='November' check:innerText='November' /&gt;" Guid="193943d3-9eb3-48d2-a4ca-d3c277c02b3a" InformativeScreenshot="f2eae3ecb60a27dc82a773e8912386a0.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_11" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[FromDate.Substring(3,2) = &quot;12&quot;]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Not MonthExists]" DisplayName="While" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_13">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="300,178" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckElement ContinueOnError="True" DelayBefore="0" DisplayName="Check Element 'December'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NCheckElement_14" Result="[MonthExists]" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Timeout="1" Version="V3">
+                                <uix:NCheckElement.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="498, 639, 91, 19" CvTextArgument="December" CvType="Text" DesignTimeRectangle="500, 640, 87, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'December'" FullSelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-datepicker-month' parentid='ui-datepicker-div' tag='SPAN' type='' aaname='December' check:innerText='December' /&gt;" Guid="153d6f6b-5315-47fa-82fa-36323a7fde40" InformativeScreenshot="5b1475fe9a911a41c25ece03c0ff1038.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                </uix:NCheckElement.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckElement>
+                              <If Condition="[MonthExists = True]" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Break_12" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="300,112.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="258,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvElementArea="717, 634, 30, 30" CvType="Icon" DesignTimeRectangle="721, 638, 24, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next' parentid='ui-datepicker-div' tag='SPAN' type='' class='ui-icon ui-icon-circle-triangle-e' check:innerText='Next' /&gt;" Guid="234b0178-2a58-42de-a158-58b540aa69e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKNSURBVEhL5ZbNaxNBGMbzZ9UvBCuKHyB6UVE8KH6BeBQRPKp48K/wIlibNjWmpa0mlVJjoS1+HJQmLZ6qNAEFd2c/9PV5ZlPYnZndFAvx4OGBZed9f7/dycxsSv6L4zLI/BfCY7jYirsom3R9Xlx9SQxhcbFdWxR3r0OYDgonT4o/fVr8lxdENa6KmrueDe5xTNewNgV3pVgIgIYu3Zdg9YlEnfcS/Whng3scYw1rE6mD1Uu+cPa8qOYdCdsjEm4sSPR9VeLop8S/42xwj2OsYS172OtkIrawhimZOpXI1sYlVh1bkhfUskdLwdAsg28LKXt9A087msh+BW64K6ylFL1kaKnBt4XTZyRYfijh16YTGm2uSLhekajgzdlLBlkmH8KjuEgFKy5sPcXv0nLCgs+PRdUvSbQxnytlLxl69Rp8S6gaVyTqfsBi8JwwCv3JE1rKN3XVsJcMsky+LZy7ppe7E4Ro4Vbtm1u500sGWWk2syNhUX2+sIqLVFSjj/AThNuo10KMpWuZHQnVQp8p3ZawzkXzUeI4Z9FQWMOieVWwaNBLBlkm3xbOYlu0y3jCNSeMQsoKtwV6ySDL5FtCvfFXHkn0bdEN21zuu/HZS4be+Abf3vhT+ELM38SZOIZjqvsXR1tX95JBlsm3hTUcQSgMFu9K+KWaSF1wVyhDD3u1jCyDX/InhsWfOGhFcWqbt/FbPMMUvcXvsu5eSFwgGOM08tAO8KVQM2fFf37ImZJf3i3e2B5krx3K6xfxcb0nAc/Xzjv97csE98LWiARLD7ANLgN6WPzx/bkpeeVd4lHqCqWVA+JVj/T+auDJZ85lw3sY87AgvMowevahFy+Qk55wcPkHwtEhGVyG5A+Vefl3sHteBgAAAABJRU5ErkJggg==" InformativeScreenshot="9fc3c8b3bae7abef999d34d92d4b1504.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CvTextArea="138, 598, 99, 19" CvTextArgument="From Date" CvType="Text" DesignTimeRectangle="140, 598, 96, 22" FriendlyName="'From Date'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='From Date' check:innerText='From Date' /&gt;" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[MonthExists]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:IfElseIf>
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Year]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[FromDate.Substring(6)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into year" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Text="[Year]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="595, 640, 49, 18" CvTextArgument="2020" CvType="Text" DesignTimeRectangle="592, 637, 108, 25" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'2020'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' class='ui-datepicker-year' aaname='' /&gt;" Guid="050456d2-9c1d-4af0-9a94-b69a6fa5a64d" InformativeScreenshot="b4fe545f700c27c82c21880bf9a1040a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Press Enter" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[DateVar]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[FromDate.Substring(0,2)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Date" sap:VirtualizedContainerService.HintSize="434,25.333333333333332" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="13e5ae02-464e-4fab-870f-727c4e8df640" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" CvTextArea="559, 733, 12, 21" CvTextArgument="[DateVar]" CvType="Text" DesignTimeRectangle="581, 677, 45, 37" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl parentid='ui-datepicker-div' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='A' /&gt;" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl parentid='ui-datepicker-div' tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='ui-state-default' aaname='{0}' check:innerText='{0}' /&gt;&quot;, DateVar)]" Guid="779b2f1c-c16a-40a6-8a7a-85ec3bd6f6cc" ImageBase64="" InformativeScreenshot="f1f8fe6a9ff9d1b08a202d7ba1e2f243.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 1942, 1030" BrowserType="Edge" IconBase64="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" InformativeScreenshot="d9c543e5095e6d93839796d4047525e8.jpg" Selector="&lt;html app='msedge.exe' title='Reserve Bank of India - Reference Rate Archive' /&gt;" Title="Reserve Bank of India - Reference Rate Archive" Url="https://www.rbi.org.in/scripts/ReferenceRateArchive.aspx" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
