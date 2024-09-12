@@ -1,0 +1,6 @@
+Sub ActiveSheet()
+    Dim lastrow2 As Long
+    lastrow2 = Cells(Rows.Count, "C").End(xlUp).Row
+
+    Range("C3:C" & lastrow2).NumberFormat = "0.00%"
+End Sub
