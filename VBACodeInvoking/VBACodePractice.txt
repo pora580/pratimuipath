@@ -1,0 +1,26 @@
+Sub Practice()
+
+Dim usedRange As Range
+Set usedRange = ActiveSheet.usedRange
+With usedRange.Borders
+	.LineStyle = xlContinuous
+	.Color = vbBlack
+	.Weight = xlThin
+End With
+With usedRange
+	.Font.Bold = True
+End With
+
+With ActiveSheet
+	Dim MySht As Worksheet
+    Dim MyRng As Range
+    Set MySht = ThisWorkbook.Sheets("Sheet1")
+    Set MyRng = MySht.UsedRange
+	For Each z In MyRng.Rows
+		If IsEmpty(z.Columns("A").Cells.Value) Then z.Interior.ColorIndex = 6 Else z.Interior.ColorIndex = 4
+	Next z
+End With
+With ActiveSheet
+	Range("A1:C1").Interior.ColorIndex = 8
+End With
+End Sub
