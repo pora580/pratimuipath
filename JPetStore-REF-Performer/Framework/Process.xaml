@@ -1,17 +1,21 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="io_dtarray" Type="InOutArgument(scg:List(sd:DataTable))" />
     <x:Property Name="io_TotalSum" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_TotalCount" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_MostExpensive" Type="InOutArgument(ui:QueueItem)" />
     <x:Property Name="io_LeastExpensive" Type="InOutArgument(ui:QueueItem)" />
+    <x:Property Name="io_dt_Sheet4" Type="InOutArgument(s:String[])" />
+    <x:Property Name="io_dt_Sheet3" Type="InOutArgument(s:String[])" />
+    <x:Property Name="io_dt_Sheet2" Type="InOutArgument(s:String[])" />
+    <x:Property Name="io_dt_sheet1" Type="InOutArgument(s:String[])" />
+    <x:Property Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,819</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1114,603</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -97,6 +101,9 @@
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="450,492" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -112,9 +119,6 @@
         <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
           <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
         </InArgument>
-        <OutArgument x:TypeArguments="scg:List(sd:DataTable)" x:Key="out_DtArray">
-          <VisualBasicReference x:TypeArguments="scg:List(sd:DataTable)" ExpressionText="io_dtarray" />
-        </OutArgument>
         <InOutArgument x:TypeArguments="x:Int32" x:Key="io_SumPrice">
           <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TotalSum" />
         </InOutArgument>
@@ -127,6 +131,21 @@
         <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TotalCount">
           <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TotalCount" />
         </InOutArgument>
+        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_dt_Sheet1">
+          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_sheet1" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_dt_Sheet2">
+          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_Sheet2" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_dt_Sheet3">
+          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_Sheet3" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_dt_Sheet4">
+          <VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_Sheet4" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
+          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_TransactionNumber" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
